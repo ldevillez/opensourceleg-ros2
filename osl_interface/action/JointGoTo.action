@@ -5,6 +5,7 @@
 
 float32 position
 bool relative
+bool is_rad
 ---
 int32 qc_position
 float32 rad_position
