@@ -5,8 +5,8 @@ Utility module to support the osl controller
 """
 
 import pyudev
-from bl_osl_controller.defs import TYPE_JOINT
-import bl_interface.msg as bl_interface_msg
+from osl_node.defs import TYPE_JOINT
+import osl_interface as osl_msg
 from numpy import pi
 
 
@@ -114,8 +114,8 @@ def get_tty_joint(joint_type: TYPE_JOINT = TYPE_JOINT.ANKLE) -> str | None:
         return None
 
 dict_name_to_control_mode = {
-    "MANUAL": bl_interface_msg.ControlMode.MANUAL,
-    "TRACKING": bl_interface_msg.ControlMode.TRACKING,
+    "MANUAL": osl_msg.ControlMode.MANUAL,
+    "TRACKING": osl_msg.ControlMode.TRACKING,
 }
 
 
