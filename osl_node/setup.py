@@ -4,7 +4,7 @@ package_name = 'osl_node'
 
 setup(
     name=package_name,
-    version='1.0.0',
+    version='0.0.0',
     packages=find_packages(exclude=['test']),
     data_files=[
         ('share/ament_index/resource_index/packages',
@@ -15,13 +15,13 @@ setup(
     zip_safe=True,
     maintainer='ldevillez',
     maintainer_email='louis.devillez@gmail.com',
-    description='OSL node for ROS2',
+    description='ROS2 node for OSL',
     license='Apache-2.0',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            "knee = osl_node.osl:osk_knee",
-            "ankle = osl_node.osl:osk_ankle",
+            "ankle = osl_node.osl:osl_ankle",
+            "knee = osl_node.osl:osl_knee",
         ],
     },
 )
