@@ -1,0 +1,6 @@
+# Ask to set the interface in a given state
+
+InterfaceStatus status
+---
+bool success
+InterfaceStatus status

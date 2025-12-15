@@ -1,0 +1,13 @@
+# Move a motor to a given position or a relative to its given position
+# position describe the position to go or the displacement to do
+# relative: tell if it is an absolute position to reach or a relative one
+# is_rad: tell if the position is in radian or in qc
+
+float32 position
+bool relative
+---
+int32 qc_position
+float32 rad_position
+---
+int32 qc_position
+float32 rad_position

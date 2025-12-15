@@ -1,0 +1,6 @@
+# Ask to set the motor control in a given mode
+#
+ControlMode mode
+---
+bool success
+ControlMode mode

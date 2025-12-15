@@ -1,0 +1,54 @@
+# ROS2 build and install folders
+build/
+install/
+log/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# VSCode settings
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Test and coverage
+*.coverage
+.coverage
+htmlcov/
+
+# ROS2 launch/params logs
+*.launch.pyc
+*.params.yamlc
+
+# Environment
+.env
+.venv
+venv/
+ENV/
+
+# ROS2 resource index
+resource_index/
+
+# Misc
+*.swp
+*.swo
+*~
+
+# Ignore user-specific config
+*.user
+*.sublime-workspace
+*.sublime-project
+
+# Ignore generated docs
+/docs/_build/
