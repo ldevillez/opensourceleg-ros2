@@ -151,7 +151,14 @@ By default, ROS uses a multicast discovery mechanism to find nodes on the same n
     ros2 daemon stop
     ros2 daemon start
     ```
-
+## Notes
+- If you are using a venv (for example for the opensourceleg package):
+    - The first compilation of osl_interface may need to be done without sourcing the venv.
+    - Verify that the package that use the venv have the following snippet at the top of their ’setup.cfg`:
+    ```ini
+    [build_scripts]
+    executable = /usr/bin/env python3
+    ```
 
 
 
