@@ -6,7 +6,7 @@ Utility module to support the osl controller
 
 import pyudev
 from osl_node.defs import TYPE_JOINT
-import osl_interface as osl_msg
+import osl_interface.msg as osl_msg
 from numpy import pi
 
 
