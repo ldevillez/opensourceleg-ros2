@@ -1,5 +1,7 @@
 # OpenSource-Leg ROS2 Node
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21392876.svg)](https://doi.org/10.5281/zenodo.21392876)
+
 This repository provides a ROS2 node implementation for the [OpenSource-Leg (OSL)](https://opensourceleg.org/), an open-source robotic leg platform developed by the Neurobionics Lab. The node enables communication, control, and monitoring of the OSL hardware within a ROS2 ecosystem.
 
 ## Project Structure
@@ -169,6 +171,19 @@ By default, ROS uses a multicast discovery mechanism to find nodes on the same n
 
 ## Contributing
 Contributions are welcome! Please open issues or pull requests for improvements, bug fixes, or new features.
+
+## Citation
+If you use this software in your research, please cite it. You can use the metadata in [`CITATION.cff`](CITATION.cff) (or the "Cite this repository" button on GitHub), or the following BibTeX entry:
+```bibtex
+@software{devillez_opensourceleg_ros2,
+  author  = {Devillez, Louis},
+  title   = {{OpenSource-Leg ROS2 Node}},
+  year    = {2026},
+  version = {1.0.0},
+  doi     = {10.5281/zenodo.21392876},
+  url     = {https://doi.org/10.5281/zenodo.21392876}
+}
+```
 
 ## License
 This project is licensed under the Apache License. See the `LICENSE` file for details.
