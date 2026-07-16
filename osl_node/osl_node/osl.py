@@ -412,7 +412,7 @@ class Joint(Node):
             goal_handle.succeed()
 
             result = osl_act.JointHome.Result()
-            result.qc_position = float(self.encoder.position)
+            result.position = float(self.encoder.position)
 
             return result
 
