@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "OpenSource-Leg ROS2 Node"
+type: software
+authors:
+  - family-names: "Devillez"
+    given-names: "Louis"
+    affiliation: "UCLouvain / iMMC / MEED"
+    orcid: "https://orcid.org/0000-0002-5589-7156"
+version: 1.0.0
+date-released: "2026-07-16"
+url: "https://github.com/ldevillez/opensourceleg-ros2"
+repository-code: "https://github.com/ldevillez/opensourceleg-ros2"
+license: Apache-2.0
+keywords:
+  - ROS2
+  - robotics
+  - prosthetics
+  - open-source-leg

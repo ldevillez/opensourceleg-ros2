@@ -100,7 +100,7 @@ class Joint(Node):
         # Publishing
         dt_pub = 1e-2
         self._dt_pub = 1/dt_pub
-        # self.timer = self.create_timer(dt_pub, self.publish_callback)
+        self.timer = self.create_timer(dt_pub, self.publish_callback)
 
         self.kin_joint_publisher = self.create_publisher(
             osl_msg.JointKinematic, f"/{art_name}/joint_kinematic", 10
@@ -355,7 +355,7 @@ class Joint(Node):
             if response.success:
                 self.get_logger().info(f"Status {input_status} set")
             else:
-                self.get_logger().info(f"Could not set status {name_status}")
+                self.get_logger().info(f"Could not set status {input_status}")
 
         return response
 
@@ -372,7 +372,7 @@ class Joint(Node):
             f"Control mode switch to {control_mode_to_name(request.mode)}"
         )
 
-        if self.control_mode == osl_msg.ControlMode.TRACKING:
+        if self.control_mode.mode == osl_msg.ControlMode.TRACKING:
             # We reset the current controller as we do not know which it is
             self.type_controller = None
             self.actuator.set_control_mode(mode=CONTROL_MODES.VOLTAGE)
@@ -485,8 +485,8 @@ class Joint(Node):
             target = target  * RAD_TO_DEG
 
         if req.relative:
-            self.actuator.update
-            target = self.actuator.motor_position() + target
+            self.actuator.update()
+            target = self.actuator.motor_position + target
 
         self.get_logger().info(f"Moving {'relative' if req.relative else 'absolute'} to {target}")
 
@@ -496,13 +496,8 @@ class Joint(Node):
 
         self.actuator.set_control_mode(mode=CONTROL_MODES.POSITION)
 
-        self.actuator.update()
-        old_pos = self.actuator.motor_position
-        mot_pos = 0.0
-
         self.actuator.set_position_gains(kp=6)
         self.actuator.set_output_position(target)
-
 
         self.actuator.set_control_mode(mode=CONTROL_MODES.IDLE)
 
@@ -511,7 +506,8 @@ class Joint(Node):
         result = osl_act.JointGoTo.Result()
 
         self.encoder.update()
-        result.qc_position = int(mot_pos)
+        self.actuator.update()
+        result.qc_position = int(self.actuator.motor_position)
         result.rad_position = float(self.encoder.position)
 
         return result

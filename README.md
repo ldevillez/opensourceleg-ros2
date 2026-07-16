@@ -28,8 +28,8 @@ osl_node/
 ## Getting Started
 
 ### Prerequisites
-- [ROS2 Humble or later](https://docs.ros.org/en/kilted/Installation.html) (only tested on Rolling)
-    - If you are not familliar with ROS2, it is suggested to follow the tutorials
+- [ROS2](https://docs.ros.org/en/kilted/Installation.html) (only tested on Rolling)
+    - If you are not familiar with ROS2, it is suggested to follow the tutorials
 - Python 3.11+
 - OSL V2 hardware
 
@@ -42,12 +42,13 @@ osl_node/
 3. Clone this repository into your ROS2 workspace:
    ```bash
    cd ~/ros_ws/src
-   git clone https://github.com/ldevillez/osl_ros2.git
+   git clone https://github.com/ldevillez/opensourceleg-ros2.git
    ```
 4. Install dependencies:
    ```bash
    cd ~/ros_ws
    rosdep install --from-paths src --ignore-src -r -y
+   pip install -r src/opensourceleg-ros2/requirements.txt
    ```
 5. Build the workspace:
    ```bash
@@ -64,8 +65,8 @@ To launch the OSL ROS2 node for the knee:
 ros2 run osl_node knee
 ```
 or for the ankle:
-```bash 
-ros2 run osl_node knee
+```bash
+ros2 run osl_node ankle
 ```
 
 ## How to use
@@ -78,7 +79,7 @@ ros2 run osl_node <leg_type>
 ```
 Where `<leg_type>` can be either `knee` or `ankle`. It is possible to run both an ankle and a knee node simultaneously by launching two separate instances of the node with the respective leg types.
 
-When the node is runnig it will publish: 
+When the node is running it will publish:
 - Joint kinematics on the `<leg_type>/joint_kinematic` topic
 - Motor information on the `<leg_type>/motor_info` topic
 
@@ -108,7 +109,7 @@ The [`osl_interface`](osl_interface) directory, list all the custom messages, se
 - `ControlMode.msg`: Defines control modes for the leg (e.g., manual, tracking, unknown).
 - `InterfaceStatus.msg`: Status information from the leg interface.
 - `JointImpedance.msg`: Joint impedance data.
-- `JointKinematics.msg`: Joint kinematics data.
+- `JointKinematic.msg`: Joint kinematics data.
 - `MotorInfo.msg`: Information about the motors.
 
 #### Services
@@ -129,7 +130,7 @@ By default, ROS uses a multicast discovery mechanism to find nodes on the same n
    ```bash
    export ROS_DOMAIN_ID=1  # or any other number
    ```
-3. Based on this ID, check the the corresponding ports are open ([ROS2 port list](https://docs.ros.org/en/kilted/Concepts/Intermediate/About-Domain-ID.html)).
+3. Based on this ID, check the corresponding ports are open ([ROS2 port list](https://docs.ros.org/en/kilted/Concepts/Intermediate/About-Domain-ID.html)).
 4. On the local computer, create a discovery server:
     ```bash
     fastdds discovery --server-id 0

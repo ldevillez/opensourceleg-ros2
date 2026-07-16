@@ -2,10 +2,15 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>osl_node</name>
-  <version>0.0.0</version>
+  <version>1.0.0</version>
   <description>ROS2 node to control the Open-Source Leg</description>
   <maintainer email="louis.devillez@gmail.com">ldevillez</maintainer>
   <license>Apache-2.0</license>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>osl_interface</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-pyudev</exec_depend>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
